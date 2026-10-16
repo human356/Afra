@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>One-time sign-in — Userbot</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<div class="login">
+  <form id="form" autocomplete="off" novalidate>
+    <div class="brand"><span class="mark"></span><h1>One-time Telegram sign-in</h1></div>
+    <p class="muted" id="intro">Sign in once so the bot can run on this server. · یک‌بار وارد حساب تلگرام شوید.</p>
+
+    <label id="f-dash">Setup password (DASHBOARD_PASSWORD) · رمز راه‌اندازی
+      <input id="dash" type="password" autocomplete="current-password">
+    </label>
+    <label id="f-phone" hidden>Phone number, international format · شماره با کد کشور
+      <input id="phone" type="tel" inputmode="tel" placeholder="+491701234567" autocomplete="off">
+    </label>
+    <label id="f-code" hidden>Code Telegram sent you (check the Telegram app) · کدی که تلگرام فرستاد
+      <input id="code" type="password" inputmode="numeric" autocomplete="one-time-code">
+    </label>
+    <label id="f-password" hidden>Two-step verification password · رمز تأیید دومرحله‌ای
+      <input id="pw2" type="password" autocomplete="off">
+    </label>
+
+    <button class="btn primary" id="go" type="submit">Continue</button>
+    <button class="btn" id="retry" type="button" hidden>Try again</button>
+    <div id="status" class="muted" role="status"></div>
+    <div id="msg" class="err" role="alert"></div>
+  </form>
+</div>
+<script src="/setup.js"></script>
+</body>
+</html>

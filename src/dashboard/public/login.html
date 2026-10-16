@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Userbot console — sign in</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<div class="login">
+  <form id="form" autocomplete="off">
+    <div class="brand"><span class="mark"></span><h1>Userbot console</h1></div>
+    <label>Dashboard password
+      <input id="pw" type="password" autocomplete="current-password" required autofocus>
+    </label>
+    <button class="btn primary" type="submit">Sign in</button>
+    <div id="msg" class="err" role="alert"></div>
+  </form>
+</div>
+<script src="/login.js"></script>
+</body>
+</html>
