@@ -1,0 +1,24 @@
+services:
+  userbot:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      # Inside the container the dashboard must listen on all interfaces; the host port below is bound to localhost only.
+      DASHBOARD_HOST: 0.0.0.0
+      DASHBOARD_ALLOWED_HOSTS: localhost,127.0.0.1
+    volumes:
+      - ./data:/app/data          # session, database, downloads, backups (keep private!)
+      - ./plugins:/app/plugins:ro # external plugins (disabled until enabled by the master admin)
+    ports:
+      - "127.0.0.1:8787:8787"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s

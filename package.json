@@ -1,0 +1,49 @@
+{
+  "name": "telegram-userbot",
+  "version": "1.0.0",
+  "description": "Modular, security-first Telegram userbot (Node.js + teleproto/GramJS-compatible MTProto client)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.cjs",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "login": "tsx src/cli.ts login",
+    "logout": "tsx src/cli.ts logout",
+    "doctor": "tsx src/cli.ts doctor",
+    "backup": "tsx src/cli.ts backup",
+    "matrix": "tsx src/cli.ts matrix --write",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify": "npm run typecheck && npm run lint && npm test",
+    "docs:commands": "tsx scripts/gen-commands.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "big-integer": "1.6.52",
+    "dotenv": "18.0.7",
+    "express": "5.3.0",
+    "pg": "8.23.1",
+    "pino": "10.4.0",
+    "teleproto": "1.230.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/express": "5.0.6",
+    "@types/jsdom": "30.0.0",
+    "@types/node": "26.6.5",
+    "@types/pg": "8.23.1",
+    "eslint": "10.12.0",
+    "jsdom": "30.1.2",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.1",
+    "vitest": "5.0.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.16"
+  }
+}
